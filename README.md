@@ -76,6 +76,10 @@ while True:
 
 client.close()
 server.close()
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4c36587e380bc4bf590fd0afde8ba7eca93c943f
 ```
 
 CLIENT
@@ -100,11 +104,11 @@ client.close()
 
 ## Output:
 
-server
+ SERVER
+<img width="696" height="147" alt="image" src="https://github.com/user-attachments/assets/267681d1-44db-48ff-bb7a-b767b96b8c13" />
 
-![alt text](image-3.png)
-
-client
+CLIENT
+<img width="782" height="115" alt="image" src="https://github.com/user-attachments/assets/b709a868-de6a-4880-9108-83d8a06e6d7a" />
 
 ![alt text](image.png)
 ## Result:
