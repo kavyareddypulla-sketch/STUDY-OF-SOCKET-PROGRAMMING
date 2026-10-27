@@ -58,53 +58,54 @@ SERVER
 ```
 import socket
 
-s = socket.socket()
-s.bind(('localhost', 8000))
-s.listen(5)
+server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+server.bind(('127.0.0.1', 8000))
+server.listen(5)
 
-c, addr = s.accept()
+client, address = server.accept()
 
 while True:
-    i = input("Enter a data: ")
-    c.send(i.encode())
+    message = input("Enter a data: ")
+    client.sendall(message.encode())
 
-    ack = c.recv(1024).decode()
-
-    if ack:
-        print(ack)
-        continue
+    response = client.recv(1024).decode()
+    if response:
+        print(response)
     else:
-        c.close()
-        break;
+        break
+
+client.close()
+server.close()
 ```
 
 CLIENT
 ```
 import socket
 
-s = socket.socket()
-s.connect(('localhost', 8000))
+client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+client.connect(('127.0.0.1', 8000))
 
 while True:
-    print(s.recv(1024).decode())
-    s.send("Acknowledgement Recived".encode())
+    data = client.recv(1024).decode()
+
+    if not data:
+        break
+
+    print(data)
+    client.sendall("Acknowledgement Received".encode())
+
+client.close()
+
 ```
 
 ## Output:
 
-<<<<<<< HEAD
-## SERVER
-<img width="696" height="147" alt="image" src="https://github.com/user-attachments/assets/267681d1-44db-48ff-bb7a-b767b96b8c13" />
+server
 
-## CLIENT
-<img width="782" height="115" alt="image" src="https://github.com/user-attachments/assets/b709a868-de6a-4880-9108-83d8a06e6d7a" />
-=======
-SERVER
+![alt text](image-3.png)
 
-CLIENT
+client
 
-
->>>>>>> 25ac031 (Success)
-
+![alt text](image.png)
 ## Result:
 Thus the study of Socket Programming Completed Successfully

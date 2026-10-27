@@ -1,20 +1,20 @@
 import socket
 
-s = socket.socket()
-s.bind(('localhost', 8000))
-s.listen(5)
+server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+server.bind(('127.0.0.1', 8000))
+server.listen(5)
 
-c, addr = s.accept()
+client, address = server.accept()
 
 while True:
-    i = input("Enter a data: ")
-    c.send(i.encode())
+    message = input("Enter a data: ")
+    client.sendall(message.encode())
 
-    ack = c.recv(1024).decode()
-
-    if ack:
-        print(ack)
-        continue
+    response = client.recv(1024).decode()
+    if response:
+        print(response)
     else:
-        c.close()
         break
+
+client.close()
+server.close()
