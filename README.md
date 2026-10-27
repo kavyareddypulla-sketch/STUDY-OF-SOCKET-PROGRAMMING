@@ -76,10 +76,6 @@ while True:
 
 client.close()
 server.close()
-<<<<<<< HEAD
-=======
-
->>>>>>> 4c36587e380bc4bf590fd0afde8ba7eca93c943f
 ```
 
 CLIENT
@@ -110,6 +106,5 @@ client.close()
 CLIENT
 <img width="782" height="115" alt="image" src="https://github.com/user-attachments/assets/b709a868-de6a-4880-9108-83d8a06e6d7a" />
 
-![alt text](image.png)
 ## Result:
 Thus the study of Socket Programming Completed Successfully
